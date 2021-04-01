@@ -189,7 +189,7 @@ func (d *Downloader) emit(eventKey EventKey, task *TaskInfo, errs ...error) {
 	}
 }
 
-var defaultDownloader = NewDownloader(http.FetcherBuilder)
+//var defaultDownloader = NewDownloader(http.FetcherBuilder)
 
 type boot struct {
 	url      string
@@ -207,12 +207,12 @@ func (b *boot) Extra(extra interface{}) *boot {
 	return b
 }
 
-func (b *boot) Resolve() (*base.Resource, error) {
-	return defaultDownloader.Resolve(&base.Request{
-		URL:   b.url,
-		Extra: b.extra,
-	})
-}
+//func (b *boot) Resolve() (*base.Resource, error) {
+//	return defaultDownloader.Resolve(&base.Request{
+//		URL:   b.url,
+//		Extra: b.extra,
+//	})
+//}
 
 func (b *boot) Listener(listener Listener) *boot {
 	b.listener = listener
@@ -220,7 +220,12 @@ func (b *boot) Listener(listener Listener) *boot {
 }
 
 func (b *boot) Create(opts *base.Options) error {
-	res, err := b.Resolve()
+
+	defaultDownloader := NewDownloader(http.FetcherBuilder)
+	res, err := defaultDownloader.Resolve(&base.Request{
+		URL:   b.url,
+		Extra: b.extra,
+	})
 	if err != nil {
 		return err
 	}
