@@ -1,4 +1,4 @@
-module github.com/monkeyWie/gopeed-core
+module github.com/mrwangjq/gopeed-core
 
 go 1.15
 
