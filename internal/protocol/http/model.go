@@ -1,6 +1,6 @@
 package http
 
-import "github.com/monkeyWie/gopeed-core/pkg/base"
+import "github.com/mrwangjq/gopeed-core/pkg/base"
 
 type Chunk struct {
 	Status     base.Status

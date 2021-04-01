@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/monkeyWie/gopeed-core/pkg/base"
-	"github.com/monkeyWie/gopeed-core/pkg/download"
-	"github.com/monkeyWie/gopeed-core/pkg/util"
+	"github.com/mrwangjq/gopeed-core/pkg/base"
+	"github.com/mrwangjq/gopeed-core/pkg/download"
+	"github.com/mrwangjq/gopeed-core/pkg/util"
 	"path/filepath"
 	"sync"
 )

@@ -1,10 +1,10 @@
 package http
 
 import (
-	"github.com/monkeyWie/gopeed-core/internal/controller"
-	"github.com/monkeyWie/gopeed-core/internal/fetcher"
-	"github.com/monkeyWie/gopeed-core/pkg/base"
-	"github.com/monkeyWie/gopeed-core/pkg/test"
+	"github.com/mrwangjq/gopeed-core/internal/controller"
+	"github.com/mrwangjq/gopeed-core/internal/fetcher"
+	"github.com/mrwangjq/gopeed-core/pkg/base"
+	"github.com/mrwangjq/gopeed-core/pkg/test"
 	"net"
 	"reflect"
 	"testing"

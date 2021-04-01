@@ -1,8 +1,8 @@
 package fetcher
 
 import (
-	"github.com/monkeyWie/gopeed-core/internal/controller"
-	"github.com/monkeyWie/gopeed-core/pkg/base"
+	"github.com/mrwangjq/gopeed-core/internal/controller"
+	"github.com/mrwangjq/gopeed-core/pkg/base"
 )
 
 // 对应协议的下载支持
