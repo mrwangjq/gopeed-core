@@ -57,26 +57,26 @@ func NewDownloader(fbs ...FetcherBuilder) *Downloader {
 	}
 	d.tasks = make(map[string]*TaskInfo)
 
-	// 每秒统计一次下载速度
-	go func() {
-		for {
-			if len(d.tasks) > 0 {
-				for _, task := range d.tasks {
-					if task.Status == base.DownloadStatusDone ||
-						task.Status == base.DownloadStatusError ||
-						task.Status == base.DownloadStatusPause {
-						continue
-					}
-					current := task.fetcher.Progress().TotalDownloaded()
-					task.Progress.Used = task.timer.Used()
-					task.Progress.Speed = current - task.Progress.Downloaded
-					task.Progress.Downloaded = current
-					d.emit(EventKeyProgress, task)
-				}
-			}
-			time.Sleep(time.Second)
-		}
-	}()
+	//// 每秒统计一次下载速度
+	//go func() {
+	//	for {
+	//		if len(d.tasks) > 0 {
+	//			for _, task := range d.tasks {
+	//				if task.Status == base.DownloadStatusDone ||
+	//					task.Status == base.DownloadStatusError ||
+	//					task.Status == base.DownloadStatusPause {
+	//					continue
+	//				}
+	//				current := task.fetcher.Progress().TotalDownloaded()
+	//				task.Progress.Used = task.timer.Used()
+	//				task.Progress.Speed = current - task.Progress.Downloaded
+	//				task.Progress.Downloaded = current
+	//				d.emit(EventKeyProgress, task)
+	//			}
+	//		}
+	//		time.Sleep(time.Second)
+	//	}
+	//}()
 	return d
 }
 
