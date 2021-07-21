@@ -3,6 +3,7 @@ package http
 import (
 	"bytes"
 	"context"
+	"crypto/tls"
 	"fmt"
 	"github.com/mrwangjq/gopeed-core/internal/fetcher"
 	"github.com/mrwangjq/gopeed-core/pkg/base"
@@ -68,6 +69,14 @@ func (f *Fetcher) Resolve(req *base.Request) (*base.Resource, error) {
 		return nil, err
 	}
 	client := buildClient()
+
+	if strings.HasPrefix(req.URL, "https") {
+		tr := &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		}
+		client.Transport = tr
+	}
+
 	// 只访问一个字节，测试资源是否支持Range请求
 	httpReq.Header.Set(base.HttpHeaderRange, fmt.Sprintf(base.HttpHeaderRangeFormat, 0, 0))
 	httpResp, err := client.Do(httpReq)
@@ -257,6 +266,14 @@ func (f *Fetcher) fetchChunk(index int) (err error) {
 		client = buildClient()
 		buf    = make([]byte, 8192)
 	)
+
+	if strings.HasPrefix(f.res.Req.URL, "https") {
+		tr := &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		}
+		client.Transport = tr
+	}
+
 	// 重试5次
 	for i := 0; i < 5; i++ {
 		// 如果下载完成直接返回
