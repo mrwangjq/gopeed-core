@@ -1,6 +1,3 @@
-[![Test Status](https://github.com/mrwangjq/gopeed-core/workflows/test/badge.svg)](https://github.com/mrwangjq/gopeed-core/actions?query=workflow%3Atest)
-[![Codecov](https://codecov.io/gh/monkeyWie/gopeed-core/branch/master/graph/badge.svg)](https://codecov.io/gh/monkeyWie/gopeed-core)
-[![Release](https://img.shields.io/github/release/monkeyWie/gopeed-core.svg?style=flat-square)](https://github.com/mrwangjq/gopeed-core/releases)
 
 ## gopeed
 
